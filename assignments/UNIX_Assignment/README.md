@@ -52,32 +52,36 @@ cat header_genotypes.txt maize_genotypes.txt > header_maize_genotypes.txt
 cat header_genotypes.txt teosinte_genotypes.txt > header_teosinte_genotypes.txt
 ```
 
-Transpose the genotype file to swap the rows and columns
+Transpose both genotype files to swap the rows and columns
 
 ```
-awk -f transpose.awk fang_et_al_genotypes.txt > transposed_genotypes.txt
+awk -f transpose.awk header_maize_genotypes.txt > transposed_header_maize_genotypes.txt
+awk -f transpose.awk header_teosinte_genotypes.txt > transposed_header_teosinte_genotypes.txt
 ```
+
+Sort snp file based off column 1, "SNP_ID"
+```
+sort -k1,1 transposed_header_maize_genotypes.txt >  sorted_transposed_header_maize_genotypes.txt
+sort -k1,1 transposed_header_teosinte_genotypes.txt >  sorted_transposed_header_teosinte_genotypes.txt
+```
+
+Check if sorted, it is
+```
+sort -k1,1 -c sorted_transposed_header_maize_genotypes.txt
+sort -k1,1 -c sorted_transposed_header_teosinte_genotypes.txt
+```
+
+Join files
+```
+join -1 1 -2 1 -t '\t' snp_position.txt sorted_transposed_header_maize_genotypes.txt > maize_joined_file.txt
+join -1 1 -2 1 -t '\t' snp_position.txt sorted_transposed_header_teosinte_genotypes.txt > teosinte_joined_file.txt
+```
+
 
 Get rid of both headers
 ```
 tail -n +3 transposed_genotypes.txt > headerless_transposed_genotypes.txt
 tail -n +2 snp_position.txt > headerless_snp_position.txt
-```
-
-Sort snp file based off column 1, "SNP_ID"
-```
-sort -k1,1 headerless_snp_position.txt > sorted_headerless_snp_position.txt
-```
-
-Sort file based off column 1, "SNP_ID"
-```
-sort -k1,1 headerless_transposed_genotypes.txt > sorted_headerless_transposed_genotypes.txt
-```
-
-Check if sorted, its not
-```
-sort -k1,1 -c headerless_snp_position.txt > sorted_headerless_snp_position.txt
-sort -k1,1 -c headerless_transposed_genotypes.txt > sorted_headerless_transposed_genotypes.txt
 ```
 
 Join files
