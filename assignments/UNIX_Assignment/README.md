@@ -35,9 +35,10 @@ By inspecting this file I learned that:
 
 ###Maize Data
 
-grep out teosinte and maize
+grep out teosinte (ZMPBA, ZMPIL, and ZMPJA) and maize (ZMMIL OR ZMMLR OR ZMMMR )
 ```
-grep -f transpose.awk fang_et_al_genotypes.txt > transposed_genotypes.txt
+grep ZMM fang_et_al_genotypes.txt > maize_genotypes.txt
+grep ZMP fang_et_al_genotypes.txt > teosinte_genotypes.txt
 ```
 
 add headers to both teosinte and maize files
