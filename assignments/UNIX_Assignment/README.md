@@ -47,19 +47,20 @@ tail -n +3 transposed_genotypes.txt > headerless_transposed_genotypes.txt
 tail -n +2 snp_position.txt > headerless_snp_position.txt
 ```
 
-Check if sorted, its not
-```
-sort -c headerless_snp_position.txt
-```
-
 Sort snp file based off column 1, "SNP_ID"
 ```
-sort -k1,1n headerless_snp_position.txt > sorted_headerless_snp_position.txt
+sort -k1,1 headerless_snp_position.txt > sorted_headerless_snp_position.txt
 ```
 
 Sort file based off column 1, "SNP_ID"
 ```
 sort -k1,1 headerless_transposed_genotypes.txt > sorted_headerless_transposed_genotypes.txt
+```
+
+Check if sorted, its not
+```
+sort -k1,1 -c headerless_snp_position.txt > sorted_headerless_snp_position.txt
+sort -k1,1 -c headerless_transposed_genotypes.txt > sorted_headerless_transposed_genotypes.txt
 ```
 
 Join files
