@@ -59,34 +59,33 @@ awk -f transpose.awk header_maize_genotypes.txt > transposed_header_maize_genoty
 awk -f transpose.awk header_teosinte_genotypes.txt > transposed_header_teosinte_genotypes.txt
 ```
 
-Sort snp file based off column 1, "SNP_ID"
+Sort genotpye + snp file based off column 1, "SNP_ID"
 ```
 sort -k1,1 transposed_header_maize_genotypes.txt >  sorted_transposed_header_maize_genotypes.txt
 sort -k1,1 transposed_header_teosinte_genotypes.txt >  sorted_transposed_header_teosinte_genotypes.txt
+sort -k1,1 snp_position.txt > sorted_snp_position.txt
 ```
 
 Check if sorted, it is
 ```
 sort -k1,1 -c sorted_transposed_header_maize_genotypes.txt
 sort -k1,1 -c sorted_transposed_header_teosinte_genotypes.txt
+sort -k1,1 -c sorted_snp_position.txt
 ```
 
 Join files
 ```
-join -1 1 -2 1 -t '\t' snp_position.txt sorted_transposed_header_maize_genotypes.txt > maize_joined_file.txt
-join -1 1 -2 1 -t '\t' snp_position.txt sorted_transposed_header_teosinte_genotypes.txt > teosinte_joined_file.txt
+join -1 1 -2 1 -t '\t' sorted_snp_position.txt sorted_transposed_header_maize_genotypes.txt > maize_joined_file.txt
+join -1 1 -2 1 -t '\t' sorted_snp_position.txt sorted_transposed_header_teosinte_genotypes.txt > teosinte_joined_file.txt
 ```
+
+
 
 
 Get rid of both headers
 ```
 tail -n +3 transposed_genotypes.txt > headerless_transposed_genotypes.txt
 tail -n +2 snp_position.txt > headerless_snp_position.txt
-```
-
-Join files
-```
-join -1 1 -2 1 -t '\t' headerless_sorted_snp_position.txt headerless_sorted_transposed_genotypes.txt > joined_file.txt
 ```
 
 Awk out all the 40 files
