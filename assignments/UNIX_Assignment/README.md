@@ -46,34 +46,34 @@ Check if sorted, its not
 sort -c snp_position.txt
 ```
 
-Sort file based off column 1, "SNP_ID"
+Sort snp file based off column 1, "SNP_ID"
 ```
-sort -k1,1 snp_position.txt
+sort -k1,1n snp_position.txt > sorted_snp_position.txt^C
 ```
 
 Sort file based off column 1, "SNP_ID"
 ```
-sort -c transposed_genotypes.txt
+sort -k1,1n transposed_genotypes.txt > sorted_transposed_genotypes.txt
 ```
 
 Get rid of both headers
 ```
-tail -n +3 transposed_genotypes.txt > headerless_transposed_genotypes.txt
-tail -n +2 snp_position.txt > headerless_snp_position.txt
+tail -n +3 sorted_transposed_genotypes.txt > headerless_sorted_transposed_genotypes.txt
+tail -n +2 sorted_snp_position.txt > headerless_sorted_snp_position.txt
 ```
 
 Join files
 ```
-join -1 1 -2 1 -t '\t' headerless_snp_position.txt headerless_transposed_genotypes.txt > joined_file.txt
+join -1 1 -2 1 -t '\t' headerless_sorted_snp_position.txt headerless_sorted_transposed_genotypes.txt > joined_file.txt
 ```
 
-Awk out all teh 40 files
-Then use setd to change ? to something
+Awk out all the 40 files
+```
+awk something joined_file.txt
+```
+Then use setd to change "?" to "-"
+```
+sed 's/?/-/g' joined_file.txt
 
+```
 ###Teosinte Data
-
-```
-here is my snippet of code used for data processing
-```
-
-Here is my brief description of what this code does
