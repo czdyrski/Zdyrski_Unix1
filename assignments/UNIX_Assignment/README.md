@@ -43,9 +43,9 @@ grep ZMP fang_et_al_genotypes.txt > teosinte_genotypes.txt
 
 add headers to both teosinte and maize files
 ```
-grep -f transpose.awk fang_et_al_genotypes.txt > transposed_genotypes.txt
+cat head -n 1 fang_et_al_genotypes.txt maize_genotypes.txt > header_maize_genotypes.txt
+cat head -n 1 fang_et_al_genotypes.txt teosinte_genotypes.txt > header_teosinte_genotypes.txt
 ```
-
 
 Transpose the genotype file to swap the rows and columns
 
