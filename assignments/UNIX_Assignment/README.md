@@ -36,14 +36,40 @@ By inspecting this file I learned that:
 
 ###Maize Data
 
+First transpose the genotype file to swap the rows and columns
+
 ```
 awk -f transpose.awk fang_et_al_genotypes.txt > transposed_genotypes.txt
 
 ```
 
-First transpose the genotype file to swap the rows and columns
-Then, sort both files
-Join the files
+Check if sorted, its not
+```
+sort -c snp_position.txt
+```
+
+Sort file based off column 1, "SNP_ID"
+```
+sort -k1,1 snp_position.txt
+```
+
+Sort file based off column 1, "SNP_ID"
+```
+sort -c snp_position.txt
+```
+
+Get rid of both headers
+```
+tail -n +3 transposed_genotypes.txt > headerless_transposed_genotypes.txt
+tail -n +2 snp_position.txt > headerless_snp_position.txt
+```
+
+Join files
+```
+tail -n +3 transposed_genotypes.txt > headerless_transposed_genotypes.txt
+tail -n +2 snp_position.txt > headerless_snp_position.txt
+```
+
 Awk out all teh 40 files
 Then use setd to change ? to something
 
