@@ -23,7 +23,6 @@ By inspecting this file I learned that:
 wc snp_position.txt
 du -h snp_position.txt
 grep -v "^#" snp_position.txt | awk -F "\t" '{print NF; exit}'
-
 ```
 
 By inspecting this file I learned that:
@@ -40,7 +39,6 @@ First transpose the genotype file to swap the rows and columns
 
 ```
 awk -f transpose.awk fang_et_al_genotypes.txt > transposed_genotypes.txt
-
 ```
 
 Check if sorted, its not
@@ -66,8 +64,7 @@ tail -n +2 snp_position.txt > headerless_snp_position.txt
 
 Join files
 ```
-tail -n +3 transposed_genotypes.txt > headerless_transposed_genotypes.txt
-tail -n +2 snp_position.txt > headerless_snp_position.txt
+join -1 1 -2 1 -t '\t' headerless_snp_position.txt headerless_transposed_genotypes.txt > joined_file.txt
 ```
 
 Awk out all teh 40 files
