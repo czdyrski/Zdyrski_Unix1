@@ -41,25 +41,25 @@ First transpose the genotype file to swap the rows and columns
 awk -f transpose.awk fang_et_al_genotypes.txt > transposed_genotypes.txt
 ```
 
+Get rid of both headers
+```
+tail -n +3 transposed_genotypes.txt > headerless_transposed_genotypes.txt
+tail -n +2 snp_position.txt > headerless_snp_position.txt
+```
+
 Check if sorted, its not
 ```
-sort -c snp_position.txt
+sort -c headerless_snp_position.txt
 ```
 
 Sort snp file based off column 1, "SNP_ID"
 ```
-sort -k1,1n snp_position.txt > sorted_snp_position.txt^C
+sort -k1,1n headerless_snp_position.txt > sorted_headerless_snp_position.txt
 ```
 
 Sort file based off column 1, "SNP_ID"
 ```
-sort -k1,1n transposed_genotypes.txt > sorted_transposed_genotypes.txt
-```
-
-Get rid of both headers
-```
-tail -n +3 sorted_transposed_genotypes.txt > headerless_sorted_transposed_genotypes.txt
-tail -n +2 sorted_snp_position.txt > headerless_sorted_snp_position.txt
+sort -k1,1 headerless_transposed_genotypes.txt > sorted_headerless_transposed_genotypes.txt
 ```
 
 Join files
