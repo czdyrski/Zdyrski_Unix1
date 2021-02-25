@@ -35,7 +35,18 @@ By inspecting this file I learned that:
 
 ###Maize Data
 
-First transpose the genotype file to swap the rows and columns
+grep out teosinte and maize
+```
+grep -f transpose.awk fang_et_al_genotypes.txt > transposed_genotypes.txt
+```
+
+add headers to both teosinte and maize files
+```
+grep -f transpose.awk fang_et_al_genotypes.txt > transposed_genotypes.txt
+```
+
+
+Transpose the genotype file to swap the rows and columns
 
 ```
 awk -f transpose.awk fang_et_al_genotypes.txt > transposed_genotypes.txt
