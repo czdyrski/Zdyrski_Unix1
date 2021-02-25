@@ -53,7 +53,7 @@ sort -k1,1 snp_position.txt
 
 Sort file based off column 1, "SNP_ID"
 ```
-sort -c snp_position.txt
+sort -c transposed_genotypes.txt
 ```
 
 Get rid of both headers
