@@ -110,7 +110,7 @@ sed 's/?/-/' teosinte_joined_file.txt | awk '$3 = 10' > teosinte_chrom10_with_da
 Awk out all the 40 files
 Then use setd to change "?" to "-"
 ```
-cat maize_joined_file.txt | awk '$3 = 1' > mazie_chrom1.txt
+cat maize_joined_file.txt | awk '$3 = 1' > maize_chrom1.txt
 cat maize_joined_file.txt | awk '$3 = 2' > maize_chrom2.txt
 cat maize_joined_file.txt | awk '$3 = 3' > maize_chrom3.txt
 cat maize_joined_file.txt | awk '$3 = 4' > maize_chrom4.txt
@@ -136,22 +136,22 @@ sed 's/?/-/' maize_joined_file.txt | awk '$3 = 10' > maize_chrom10_with_dash.txt
 ###Maize
 Unknown SNPs
 ```
-cat teosinte_joined_file.txt | awk '$3 = 1' > teosinte_chrom1.txt
+awk -F '\t' '$4 == "unknown"' maize_joined_file.txt > unknown_maize_joined_file.txt
 ```
 
 Multiple Position SNPs
 ```
-cat teosinte_joined_file.txt | awk '$3 = 1' > teosinte_chrom1.txt
+awk -F '\t' '$4 == "multiple"' maize_joined_file.txt > multiple_maize_joined_file.txt
 ```
 
 
-###Teoisnte
+###Teosinte
 Unknown SNPs
 ```
-cat teosinte_joined_file.txt | awk '$3 = 1' > teosinte_chrom1.txt
+awk -F '\t' '$4 == "unknown"' teosinte_joined_file.txt > unknown_teosinte_joined_file.txt
 ```
 
 Multiple Position SNPs
 ```
-cat teosinte_joined_file.txt | awk '$3 = 1' > teosinte_chrom1.txt
+awk -F '\t' '$4 == "multiple"' teosinte_joined_file.txt > multiple_teosinte_joined_file.txt
 ```
