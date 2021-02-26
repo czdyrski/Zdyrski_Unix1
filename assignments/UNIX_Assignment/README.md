@@ -40,12 +40,12 @@ grep ZMM fang_et_al_genotypes.txt > maize_genotypes.txt
 grep ZMP fang_et_al_genotypes.txt > teosinte_genotypes.txt
 ```
 
-Put header in own file
+Put header of the genotype file into its own file for use later
 ```
 head -n 1 fang_et_al_genotypes.txt > header_genotypes.txt
 ```
 
-add headers to both teosinte and maize files
+Add headers to both teosinte and maize genotype files
 ```
 cat header_genotypes.txt maize_genotypes.txt > header_maize_genotypes.txt
 cat header_genotypes.txt teosinte_genotypes.txt > header_teosinte_genotypes.txt
@@ -58,7 +58,7 @@ awk -f transpose.awk header_maize_genotypes.txt > transposed_header_maize_genoty
 awk -f transpose.awk header_teosinte_genotypes.txt > transposed_header_teosinte_genotypes.txt
 ```
 
-Sort genotpye + snp file based off column 1, "SNP_ID"
+Sort genotpye and snp file based off column 1, "SNP_ID"
 ```
 sort -k1,1 transposed_header_maize_genotypes.txt >  sorted_transposed_header_maize_genotypes.txt
 sort -k1,1 transposed_header_teosinte_genotypes.txt >  sorted_transposed_header_teosinte_genotypes.txt
@@ -72,7 +72,7 @@ sort -k1,1 -c sorted_transposed_header_teosinte_genotypes.txt
 sort -k1,1 -c sorted_snp_position.txt
 ```
 
-Join files
+Join files together to combine the SNP ID and the genotype
 ```
 join -1 1 -2 1 -t $'\t' sorted_snp_position.txt sorted_transposed_header_teosinte_genotypes.txt > teosinte_joined_file.txt
 join -1 1 -2 1 -t $'\t' sorted_snp_position.txt sorted_transposed_header_maize_genotypes.txt > maize_joined_file.txt
