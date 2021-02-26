@@ -80,14 +80,56 @@ join -1 1 -2 1 -t $'\t' sorted_snp_position.txt sorted_transposed_header_maize_g
 ```
 
 
-
+###Teosinte
 Awk out all the 40 files
-```
-awk something joined_file.txt
-```
 Then use setd to change "?" to "-"
 ```
-sed 's/?/-/g' joined_file.txt
+cat teosinte_joined_file.txt | awk '$3 = 1' > teosinte_chrom1.txt
+cat teosinte_joined_file.txt | awk '$3 = 2' > teosinte_chrom2.txt
+cat teosinte_joined_file.txt | awk '$3 = 3' > teosinte_chrom3.txt
+cat teosinte_joined_file.txt | awk '$3 = 4' > teosinte_chrom4.txt
+cat teosinte_joined_file.txt | awk '$3 = 5' > teosinte_chrom5.txt
+cat teosinte_joined_file.txt | awk '$3 = 6' > teosinte_chrom6.txt
+cat teosinte_joined_file.txt | awk '$3 = 7' > teosinte_chrom7.txt
+cat teosinte_joined_file.txt | awk '$3 = 8' > teosinte_chrom8.txt
+cat teosinte_joined_file.txt | awk '$3 = 9' > teosinte_chrom9.txt
+cat teosinte_joined_file.txt | awk '$3 = 10' > teosinte_chrom10.txt
 
+sed 's/?/-/' teosinte_joined_file.txt | awk '$3 = 1' > teosinte_chrom1_with_dash.txt
+sed 's/?/-/' teosinte_joined_file.txt | awk '$3 = 2' > teosinte_chrom2_with_dash.txt
+sed 's/?/-/' teosinte_joined_file.txt | awk '$3 = 3' > teosinte_chrom3_with_dash.txt
+sed 's/?/-/' teosinte_joined_file.txt | awk '$3 = 4' > teosinte_chrom4_with_dash.txt
+sed 's/?/-/' teosinte_joined_file.txt | awk '$3 = 5' > teosinte_chrom5_with_dash.txt
+sed 's/?/-/' teosinte_joined_file.txt | awk '$3 = 6' > teosinte_chrom6_with_dash.txt
+sed 's/?/-/' teosinte_joined_file.txt | awk '$3 = 7' > teosinte_chrom7_with_dash.txt
+sed 's/?/-/' teosinte_joined_file.txt | awk '$3 = 8' > teosinte_chrom8_with_dash.txt
+sed 's/?/-/' teosinte_joined_file.txt | awk '$3 = 9' > teosinte_chrom9_with_dash.txt
+sed 's/?/-/' teosinte_joined_file.txt | awk '$3 = 10' > teosinte_chrom10_with_dash.txt
 ```
-###Teosinte Data
+###Maize
+Awk out all the 40 files
+Then use setd to change "?" to "-"
+```
+cat maize_joined_file.txt | awk '$3 = 1' > mazie_chrom1.txt
+cat maize_joined_file.txt | awk '$3 = 2' > maize_chrom2.txt
+cat maize_joined_file.txt | awk '$3 = 3' > maize_chrom3.txt
+cat maize_joined_file.txt | awk '$3 = 4' > maize_chrom4.txt
+cat maize_joined_file.txt | awk '$3 = 5' > maize_chrom5.txt
+cat maize_joined_file.txt | awk '$3 = 6' > maize_chrom6.txt
+cat maize_joined_file.txt | awk '$3 = 7' > maize_chrom7.txt
+cat maize_joined_file.txt | awk '$3 = 8' > maize_chrom8.txt
+cat maize_joined_file.txt | awk '$3 = 9' > maize_chrom9.txt
+cat maize_joined_file.txt | awk '$3 = 10' > maize_chrom10.txt
+
+sed 's/?/-/' maize_joined_file.txt | awk '$3 = 1' > maize_chrom1_with_dash.txt
+sed 's/?/-/' maize_joined_file.txt | awk '$3 = 2' > maize_chrom2_with_dash.txt
+sed 's/?/-/' maize_joined_file.txt | awk '$3 = 3' > maize_chrom3_with_dash.txt
+sed 's/?/-/' maize_joined_file.txt | awk '$3 = 4' > maize_chrom4_with_dash.txt
+sed 's/?/-/' maize_joined_file.txt | awk '$3 = 5' > maize_chrom5_with_dash.txt
+sed 's/?/-/' maize_joined_file.txt | awk '$3 = 6' > maize_chrom6_with_dash.txt
+sed 's/?/-/' maize_joined_file.txt | awk '$3 = 7' > maize_chrom7_with_dash.txt
+sed 's/?/-/' maize_joined_file.txt | awk '$3 = 8' > maize_chrom8_with_dash.txt
+sed 's/?/-/' maize_joined_file.txt | awk '$3 = 9' > maize_chrom9_with_dash.txt
+sed 's/?/-/' maize_joined_file.txt | awk '$3 = 10' > maize_chrom10_with_dash.txt
+```
+
