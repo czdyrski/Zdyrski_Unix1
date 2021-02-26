@@ -33,9 +33,8 @@ By inspecting this file I learned that:
 
 ##Data Processing
 
-###Maize Data
 
-grep out teosinte (ZMPBA, ZMPIL, and ZMPJA) and maize (ZMMIL OR ZMMLR OR ZMMMR )
+Used grep to seperate out teosinte (ZMPBA, ZMPIL, and ZMPJA) and maize (ZMMIL OR ZMMLR OR ZMMMR )
 ```
 grep ZMM fang_et_al_genotypes.txt > maize_genotypes.txt
 grep ZMP fang_et_al_genotypes.txt > teosinte_genotypes.txt
