@@ -133,3 +133,25 @@ sed 's/?/-/' maize_joined_file.txt | awk '$3 = 9' > maize_chrom9_with_dash.txt
 sed 's/?/-/' maize_joined_file.txt | awk '$3 = 10' > maize_chrom10_with_dash.txt
 ```
 
+###Maize
+Unknown SNPs
+```
+cat teosinte_joined_file.txt | awk '$3 = 1' > teosinte_chrom1.txt
+```
+
+Multiple Position SNPs
+```
+cat teosinte_joined_file.txt | awk '$3 = 1' > teosinte_chrom1.txt
+```
+
+
+###Teoisnte
+Unknown SNPs
+```
+cat teosinte_joined_file.txt | awk '$3 = 1' > teosinte_chrom1.txt
+```
+
+Multiple Position SNPs
+```
+cat teosinte_joined_file.txt | awk '$3 = 1' > teosinte_chrom1.txt
+```
